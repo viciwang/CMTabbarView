@@ -595,6 +595,7 @@ NSString *  const CMTabBoxBackgroundColor = @"CMBoxbackgroundColor";
     if (self) {
         self.titleLabel = [UILabel new];
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
+        self.titleLabel.numberOfLines = 0;
         [self addSubview:self.titleLabel];
         
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false;
