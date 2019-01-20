@@ -565,12 +565,12 @@ NSString *  const CMTabBoxBackgroundColor = @"CMBoxbackgroundColor";
 {
     if (_needAutoCenter && self.tabbarTitles.count) {
         UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
-        if (_allItemsWidth + (self.tabbarTitles.count+1) * CMTabbarViewDefaultPadding < self.collectionView.bounds.size.width) {
-            CGFloat space = self.collectionView.bounds.size.width - _allItemsWidth + (self.tabbarTitles.count+1) * CMTabbarViewDefaultPadding;
-            CGFloat interitemSpacing = (space) / (self.tabbarTitles.count+1)-5.0f; // 用collectionView 没办法精确计算，只能相对
+        if (_allItemsWidth < self.collectionView.bounds.size.width) {
+            CGFloat space = self.collectionView.bounds.size.width - _allItemsWidth;
+            CGFloat interitemSpacing = (space) / (self.tabbarTitles.count + 1)- 1.0f; // 用collectionView 没办法精确计算，只能相对
             layout.minimumInteritemSpacing = interitemSpacing;
             layout.minimumLineSpacing = interitemSpacing;
-            layout.sectionInset = UIEdgeInsetsMake(0, interitemSpacing/2, 0, interitemSpacing/2);
+            layout.sectionInset = UIEdgeInsetsMake(0, interitemSpacing, 0, 0);
         } else {
             layout.minimumLineSpacing = CMTabbarViewDefaultPadding;
             layout.minimumInteritemSpacing = CMTabbarViewDefaultPadding;
